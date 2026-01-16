@@ -1,0 +1,148 @@
+
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | ResumeChecker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #0f2027, #000);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(18px);
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #00ff88;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(0,255,136,.6);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            opacity: .8;
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            background: rgba(255,255,255,.08);
+            border: none;
+            color: #fff;
+            padding: 14px;
+            border-radius: 12px;
+        }
+
+        .form-control:focus {
+            background: rgba(255,255,255,.12);
+            box-shadow: 0 0 0 2px #00ff88;
+            color: #fff;
+        }
+
+        label {
+            font-size: 13px;
+            margin-bottom: 6px;
+            opacity: .9;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #00ff88, #00cfff);
+            border: none;
+            font-weight: 700;
+            color: #000;
+            transition: all .3s ease;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0,255,136,.5);
+        }
+
+        .extra {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 14px;
+        }
+
+        .extra a {
+            color: #00ff88;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .extra a:hover {
+            text-decoration: underline;
+        }
+
+        .input-group-text {
+            background: transparent;
+            border: none;
+            color: #00ff88;
+        }
+        
+    </style>
+</head>
+
+<body>
+ <a href="{% url 'homepage' %}" class="btn btn-warning"> ⋘ Homepage </a>
+
+<div class="login-card">
+    
+  
+
+    <div class="brand">ResumeChecker</div>
+    <div class="subtitle">Login to analyze your resume with AI 🚀</div>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label>Email or Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Enter your email" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+
+        <button class="btn btn-login mt-2">Login</button>
+    </form>
+
+    <div class="extra">
+        Don’t have an account?
+        <a href="{% url 'register' %}">Register</a>
+    </div>
+</div>
+
+</body>
+</html>
+    

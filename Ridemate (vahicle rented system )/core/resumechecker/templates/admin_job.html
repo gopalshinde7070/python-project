@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin | Add Job</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #0f2027, #000);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        /* ===== CARD ===== */
+        .admin-card {
+            width: 100%;
+            max-width: 700px;
+            background: linear-gradient(145deg,
+                    rgba(15, 23, 42, 0.95),
+                    rgba(2, 6, 23, 0.95));
+            border-radius: 24px;
+            padding: 45px;
+            box-shadow:
+                0 40px 90px rgba(0, 0, 0, .85),
+                inset 0 0 0 1px rgba(255, 255, 255, .06);
+            backdrop-filter: blur(22px);
+            transform: perspective(1200px) rotateX(3deg);
+            transition: transform .4s ease;
+        }
+
+        .admin-card:hover {
+            transform: perspective(1200px) rotateX(0deg) scale(1.01);
+        }
+
+        /* ===== TITLE ===== */
+        .title {
+            font-size: 2.1rem;
+            font-weight: 700;
+            text-align: center;
+            color: #00ff88;
+            text-shadow: 0 0 18px rgba(0, 255, 136, .7);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            opacity: .8;
+            margin-bottom: 35px;
+        }
+
+        /* ===== INPUTS ===== */
+        label {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            opacity: .9;
+        }
+
+        .input-glass {
+            width: 100%;
+            min-height: 54px;
+            background: linear-gradient(145deg,
+                    rgba(255, 255, 255, 0.12),
+                    rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 18px;
+            padding: 14px 18px;
+            color: #fff;
+            font-size: 15px;
+            transition: all .25s ease;
+        }
+
+        .input-glass::placeholder {
+            color: rgba(255, 255, 255, .55);
+        }
+
+        .input-glass:focus {
+            background: rgba(255, 255, 255, .16);
+            border-color: #00ff88;
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, .25);
+            outline: none;
+            color: #fff;
+        }
+
+        textarea.input-glass {
+            min-height: 180px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        /* ===== BUTTON ===== */
+        .btn-save {
+            width: 100%;
+            padding: 15px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #00ff88, #00cfff);
+            border: none;
+            font-weight: 700;
+            font-size: 16px;
+            color: #000;
+            transition: .35s;
+            box-shadow: 0 18px 45px rgba(0, 255, 136, .45);
+        }
+
+        .btn-save:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 30px 70px rgba(0, 255, 136, .65);
+        }
+
+        /* ===== SMALL ===== */
+        @media (max-width: 576px) {
+            .admin-card {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="admin-card">
+        <a href="{% url 'all_admin_side_matterial' %}" class="btn btn-warning"> ⋘ Back </a>
+
+        <a href="{% url 'homepage' %}" class="btn btn-warning"> ⋘ Homepage </a>
+
+        <div class="title">Add Job Description 🧠</div>
+        <div class="subtitle">
+            Admin panel – create job roles clearly & professionally
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-4">
+                <label>Job Title</label>
+                <input type="text" name="job_title" class="input-glass" placeholder="e.g. Python Full Stack Developer"
+                    required>
+            </div>
+
+            <div class="mb-4">
+                <label>Job Description</label>
+                <textarea name="job_description" class="input-glass"
+                    placeholder="Write the complete job description here..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-save">
+                Save Job Description 🚀
+            </button>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            min-height:100vh;
+            background: radial-gradient(circle at top, #0f2027, #000);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-family:'Poppins', sans-serif;
+            color:#fff;
+        }
+
+        .dashboard{
+            max-width:800px;
+            width:100%;
+            padding:50px;
+            border-radius:30px;
+            background:linear-gradient(
+                145deg,
+                rgba(255,255,255,.12),
+                rgba(255,255,255,.04)
+            );
+            backdrop-filter: blur(25px);
+            box-shadow:
+                0 50px 120px rgba(0,0,0,.9),
+                inset 0 0 0 1px rgba(255,255,255,.1);
+            text-align:center;
+        }
+
+        .title{
+            font-size:2.4rem;
+            font-weight:700;
+            color:#00ff88;
+            text-shadow:0 0 20px rgba(0,255,136,.7);
+        }
+
+        .subtitle{
+            opacity:.8;
+            margin-bottom:45px;
+        }
+
+        .card-action{
+            border-radius:26px;
+            padding:40px 30px;
+            background:linear-gradient(
+                145deg,
+                rgba(0,0,0,.6),
+                rgba(255,255,255,.05)
+            );
+            box-shadow:0 30px 70px rgba(0,0,0,.85);
+            transition:.35s;
+        }
+
+        .card-action:hover{
+            transform:translateY(-8px) scale(1.03);
+            box-shadow:0 45px 100px rgba(0,0,0,1);
+        }
+
+        .icon{
+            font-size:3.5rem;
+            margin-bottom:15px;
+        }
+
+        .card-title{
+            font-size:1.5rem;
+            font-weight:600;
+        }
+
+        .card-text{
+            opacity:.75;
+            margin:12px 0 25px;
+        }
+
+        .btn-custom{
+            width:100%;
+            padding:14px;
+            border-radius:20px;
+            font-weight:700;
+            border:none;
+            transition:.3s;
+        }
+
+        .btn-create{
+            background:linear-gradient(135deg,#00ff88,#00cfff);
+            color:#000;
+            box-shadow:0 18px 45px rgba(0,255,136,.45);
+        }
+
+        .btn-manage{
+            background:linear-gradient(135deg,#ffb703,#ff6f00);
+            color:#000;
+            box-shadow:0 18px 45px rgba(255,183,3,.45);
+        }
+
+        .btn-custom:hover{
+            transform:translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'homepage' %}" class="btn btn-warning"> ⋘ Homepage </a>
+
+
+<div class="dashboard">
+    <div class="title">Admin Dashboard ⚡</div>
+    <div class="subtitle">Choose one action to continue</div>
+
+    <div class="row g-4">
+        <!-- CREATE -->
+        <div class="col-md-6">
+            <div class="card-action">
+                <div class="icon">➕</div>
+                <div class="card-title">Create</div>
+                <div class="card-text">
+                    Add new job title & description
+                </div>
+
+                <a href="{% url 'admin_job' %}">
+                    <button class="btn-custom btn-create">
+                        Create Job
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <!-- MANAGE -->
+        <div class="col-md-6">
+            <div class="card-action">
+                <div class="icon">🗂️</div>
+                <div class="card-title">Manage</div>
+                <div class="card-text">
+                    Show, edit or delete jobs
+                </div>
+
+                <a href="{% url 'admin_job_list' %}">
+                    <button class="btn-custom btn-manage">
+                        Show / Edit / Delete
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
